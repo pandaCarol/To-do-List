@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+$desktop-width: 1440px;
+$mobil-width:375px;
+
+$font-family: 'Josefin Sans', sans-serif;
+$font-size: 18px;
+$font-weight-s:400;
+$font-weight-L:700;
+
+$bright-lue: hsl(220, 98%, 61%);
+$check-background: linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%));
+$linear-bg-color: hsl(192, 100%, 67%);
+$linear-end-color:hsl(280, 87%, 65%);
+
+/*light theme */
+
+$very-light-gray: hsl(0, 0%, 98%);
+$Very-Light-rayish-Blue: hsl(236, 33%, 92%);
+$Light-Grayish-Blue: hsl(233, 11%, 84%);
+$Dark-Grayish-Blue: hsl(236, 9%, 61%);
+$Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+
+/* dark theme */
+
+$Very-Dark-Blue: hsl(235, 21%, 11%);
+$Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+$Light-Grayish-Blue: hsl(234, 39%, 85%);
+$Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+$Dark-Grayish-Blue: hsl(234, 11%, 52%);
+$Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
+$Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+
+
+//position 
+@mixin box-initial ($bg-color: white, $color: black, $size:18px, $font-family:$font-family){
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+  background-color: $bg-color;
+  color: $color;
+  size: $size;
+  font-family: $font-family;
+}
+
+@mixin center-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@mixin font () {
+  font-size: $font-size;
+  font-weight: $font-weight-s;
+  font-family: $font-family;
+}
+
+@mixin box-margin-padding ($margin: 0, $padding: 0){
+  margin: $margin;
+  padding: $padding;
+}
+
+//background 
+@mixin bg-img () {
+  max-width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+}
+
+//button 
+@mixin button-img ($imglink, $width, $height){
+  width: $width;
+  height: $height;
+  
+  border: none;
+  background: transparent;
+  
+  background-image: $imglink;
+  background-repeat: no-repeat;
+}
+
+@mixin button-hover () {
+  cursor: pointer;
+}
+
+
+
+body {
+  @include center-display();
+  @include box-initial($Light-Grayish-Blue, $Very-Dark-Blue, $font-size, $font-family);
+  @include font();
+}
+
+#root {
+  min-width: $desktop-width;
+  @include center-display();
+
+  /*background-image: url(./images/bg-desktop-light.jpg);*/
+  /*@include bg-img();*/
+  
+}
+
+
+
+

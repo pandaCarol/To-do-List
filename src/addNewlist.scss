@@ -1,0 +1,71 @@
+@use "index";
+@use "headers";
+
+@mixin white-box {
+    max-width: 100%;
+    @include headers.container-inside-box();
+    border-radius: 0.3rem;
+    padding: 0.6rem 1rem;
+    background-color: index.$very-light-gray;
+    text-align: left;
+}
+
+@mixin circle-button {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: none;
+    background-image: linear-gradient(to bottom right, index.$Light-Grayish-Blue , index.$Light-Grayish-Blue);
+}
+
+/* button ring with gray color + hover wiht linear gradient;  */
+@mixin button-ring-outside {
+    @include circle-button();
+    @include index.center-display();
+    float: left;
+}
+
+@mixin button-ring-inside {
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 50%;
+    background-color: index.$very-light-gray;
+    color: rgba(255,255, 255, 0);
+}
+
+@mixin  button-ring-hover {
+    background-image: linear-gradient(to bottom right, index.$linear-bg-color , index.$linear-end-color);
+    @include index.button-hover;
+}
+
+section {
+    text-align: left;
+
+    .addlist {
+        background-color: index.$very-light-gray;
+        @include white-box();
+        input {
+            background-color: index.$very-light-gray;
+            @include index.font();
+            border: 1px solid rgba(255,255, 255, 0);
+            outline: none; 
+            @include index.box-margin-padding(0.6rem 1rem,0);
+       }
+    }
+   
+
+    /*add button, deaktive with gray ring, hover with linear gradient from blue to purple；*/
+    div {
+        margin: 0.35rem 0 0;
+        @include button-ring-outside();
+
+        p{
+            @include button-ring-inside();  
+        }
+
+        &:hover {
+            @include button-ring-hover();
+        }
+    }
+}
+

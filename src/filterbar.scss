@@ -1,0 +1,35 @@
+@use "index.scss";
+@use "addNewlist.scss";
+
+.filterbar {
+    @include addNewlist.white-box();
+    @include index.box-margin-padding(0 1rem, 0 0 0 1rem);
+    border-radius: 0 0 0.3rem 0.3rem;
+    font-size: index.$font-size*0.9;
+    p {
+        display: inline-block;
+        font-size: index.$font-size*0.75;
+        color: index.$Dark-Grayish-Blue;
+        line-height: 1.6;
+    }
+
+    ul {
+        float: right;
+        list-style-type: none;
+        li {
+            display: inline-block;
+            input {
+                color: index.$Dark-Grayish-Blue;
+                font-family: index.$font-family;
+                @include index.box-margin-padding(0, 0 0.8rem);
+                border: none;
+                background: none;
+
+                &:hover {
+                    @include index.button-hover;
+                    color: index.$Very-Dark-Grayish-Blue;
+                }
+            };
+        }
+    }
+}

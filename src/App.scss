@@ -1,0 +1,22 @@
+@use "index";
+
+.container {
+  width: 40%;
+  /*border: 1px solid red;*/
+  @include index.box-margin-padding(0, 4rem 0);
+
+  footer {
+    @include index.box-margin-padding(3rem 1rem, 0);
+    font-size: index.$font-size*0.8;
+    color: index.$Light-Grayish-Blue;
+  }
+}
+
+.container[value="dark"] {
+  footer {
+    color: index.$Very-Dark-Grayish-Blue;
+  }
+}
+
+
+

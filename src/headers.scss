@@ -1,0 +1,134 @@
+@use "index";
+
+@mixin container-inside-box {
+    @include index.box-margin-padding(1rem, 0);
+}
+
+
+
+header {
+    /*border: 1px solid yellow;*/
+    text-align: left;
+    @include container-inside-box();
+    @include index.box-margin-padding(1.5rem 1rem, 0);
+    color: index.$very-light-gray;
+    h1 {
+        display: inline-block;
+        font-weight: index.$font-weight-L;
+    }
+    
+    span {
+        float: right;
+        @include index.box-margin-padding(1.5rem 0.2rem,0);
+    }      
+}
+
+.container[value="dark"] {
+    color: index.$Light-Grayish-Blue;
+    header {
+        span {
+            @include index.button-img(url(./images/icon-sun.svg), 2rem, 2rem);
+
+            &:hover {
+                @include index.button-img(url(./images/icon-sun-hover.svg), 2rem, 2rem);
+                @include index.button-hover();  
+            }
+        } 
+    }
+
+    &::before {
+        content:url('./images/bgdesktopdark.jpg');
+        width: 100%;
+        text-align: center;
+        position: absolute; 
+        z-index:-1;
+        top: 0;
+        left: 0;
+    }
+
+    .addlist, .showlists, .filterbar {
+        background-color: index.$Very-Dark-Desaturated-Blue;
+    }
+    
+    .addlist {
+        div {
+            background-image: linear-gradient(to bottom right, index.$Very-Dark-Grayish-Blue, index.$Very-Dark-Grayish-Blue);
+            &:hover {
+                background-image: linear-gradient(to bottom right, index.$linear-bg-color, index.$linear-end-color);
+            }
+
+            p{
+                background-color: index.$Very-Dark-Desaturated-Blue;
+            }
+        }
+        input{
+            background-color: index.$Very-Dark-Desaturated-Blue;
+            color: index.$Light-Grayish-Blue;
+        }
+    }
+
+    .showlists {
+        ul {
+            li {
+                border-bottom: 1px solid index.$Very-Dark-Grayish-Blue;
+                span {
+                    background-image: linear-gradient(to bottom right, index.$Very-Dark-Grayish-Blue, index.$Very-Dark-Grayish-Blue);
+                    &:hover {
+                        background-image: linear-gradient(to bottom right, index.$linear-bg-color, index.$linear-end-color);
+                    }
+                    p {
+                        background-color: index.$Very-Dark-Desaturated-Blue;
+                    }
+                }
+                &[status="checked"] {
+                    .inputvalue {
+                        color: index.$Dark-Grayish-Blue;
+                    }
+                    span {
+                        p {
+                            background-image: linear-gradient(to bottom right, index.$linear-bg-color , index.$linear-end-color);
+                            background-color: rgba(255,255,255, 0);
+                        }
+                        span {
+                            opacity: 1;
+                            background-image: url(./images/icon-check.svg);
+                            @include index.bg-img();
+                            height: 1.2rem;
+                            width: 1.2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .filterbar ul li input {
+        &:hover {
+            color: index.$Light-Grayish-Blue-hover;
+        }
+    }
+}
+
+
+.container[value="light"] {
+    header{
+        span{
+            @include index.button-img(url(./images/icon-moon.svg), 2rem, 2rem);
+            
+            &:hover {
+                @include index.button-img(url(./images/icon-moon-hover.svg), 2rem, 2rem);
+                @include index.button-hover();
+            }
+        }
+    }
+
+    &::after {
+        content:url('./images/bg-desktop-light.jpg');
+        width: 100%;
+        text-align: center;
+        position: absolute; 
+        z-index:-1;
+        top: 0;
+        left: 0;
+    }
+}
